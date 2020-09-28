@@ -6,7 +6,12 @@ import utilStyles from '../styles/utils.module.css'
 const NAME = 'Talvanes Ferreira'
 export const SITETITLE = 'Next.js Sample Website'
 
-export default function Layout({ children, home }) {
+interface LayoutProps {
+  children: React.ReactNode,
+  home?: boolean
+}
+
+export default function Layout({ children, home }: LayoutProps) {
   return (
     <div className={styles.container}>
       <Head>
@@ -56,7 +61,7 @@ export default function Layout({ children, home }) {
       <main>{children}</main>
 
       {!home && (
-        <div className={styles.backToHouse}>
+        <div className={styles.backToHome}>
           <Link href="/">
             <a>Back to home</a>
           </Link>
